@@ -1,0 +1,51 @@
+#include <iostream>
+#include <unordered_map>
+#include <map>
+#include <vector>
+
+using namespace std;
+
+int main(){
+    // map<pair<int,int>,int> m1;
+    // m1[{2,0}] = 2;
+    map<string,string> m;
+    unordered_map<string,string> mm;
+    /* breakfast menu:
+        "combo 1"  -> "burger + fries + coffee"
+        "combo 2"  -> "sandwich + ice cream"
+    */
+    //http://www.cplusplus.com/reference/map/map/
+    // map::at
+    m.insert({"combo 1", "burger + fries + coffee"});
+    cout << m.at("combo 1") << endl;
+    m["combo 2"] = "sandwich + ice cream";
+    cout << m["combo 2"] << endl;
+    /*
+    for(auto iter = m.begin(); iter != m.end(); ++iter){
+        cout << iter->first << endl;
+        cout << iter->second << endl;
+    }
+    */
+    //map<char,int>::iterator
+    // home work1: https://leetcode.com/problems/jewels-and-stones/
+    // home work2: https://leetcode.com/problems/single-number/
+    
+    vector<int> v{12,342,2,134,52,51,3134,13,4,13};
+    unordered_map<int,int> m2;
+    for(int i = 0;i < v.size(); ++i){
+        int num = v[i];
+        // if num is not in m then m[num] = 1
+        // else m[num]++
+        // {12, 1}
+        // {342, 1}
+        // {2, 1}
+        // {134, 1}
+        // {52, 1}
+        // m["combo 1"]
+        m2[num]++; //{12 , 1}
+    }
+    
+    for(auto iter = m2.begin(); iter != m2.end(); ++iter){
+        cout << iter->first << " occurs " << iter->second << " times" << endl;
+    }
+}
